@@ -20,5 +20,6 @@ from first import views
 
 urlpatterns = [
     path('', include('first.urls')),#보기 편하게 이 파일에선 이런 식으로 한줄로 선언해주는 것이 좋음
+    path('', include('second.urls')),
     path('admin/', admin.site.urls),
 ]
