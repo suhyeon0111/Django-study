@@ -3,5 +3,7 @@ from django.urls.resolvers import URLPattern
 
 from . import views
 urlpatterns=[
-    path('second/list/', views.list, name="list")
+    path('second/list/', views.list, name="list"),
+    path('create/', views.create, name='create'),
+    path('confirm/', views.confirm,name='confirm'),
 ]

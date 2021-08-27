@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from second.models import Post
+from django.http import HttpResponseRedirect
 
+from second.models import Post
+from .forms import PostForm
 # Create your views here.
 
 def list(request):
@@ -9,3 +11,15 @@ def list(request):
     }
     return render(request, 'second/list.html', context)
     
+
+def create(request):
+    form = PostForm()
+    return render(request, 'second/create.html', {'form':form})
+
+
+def confirm(request):
+    form = PostForm(request.POST)
+
+    if form.is_vaild():
+        return render(request, 'second/confirm.html', {'form':form}) 
+    return HttpResponseRedirect('/create/')
